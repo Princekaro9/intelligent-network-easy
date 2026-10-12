@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+pydantic-settings
+scapy
+supabase
+httpx
+websockets
+pytest
+fastapi
+uvicorn[standard]
+scapy
+python-dotenv
+psutil

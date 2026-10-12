@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#020811"
+    >
+
+    <meta
+        name="description"
+        content="INPA — Intelligent Network Packet Analyzer. Capturez, analysez, comprenez et expliquez votre trafic réseau."
+    >
+
+    <title>
+        INPA — Intelligent Network Packet Analyzer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SPLASH SCREEN
+         ===================================================== -->
+
+    <div
+        id="splash-screen"
+        class="splash-screen"
+    >
+
+        <div class="splash-content">
+
+            <img
+                src="/static/assets/images/inpa-splash.png"
+                alt="INPA"
+                class="splash-image"
+            >
+
+            <div class="splash-loader">
+
+                <span></span>
+
+            </div>
+
+            <p class="splash-text">
+                INITIALISATION DE INPA
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ARRIÈRE-PLAN
+         ===================================================== -->
+
+    <div class="background-overlay"></div>
+
+    <div class="background-glow"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="/"
+            class="brand"
+        >
+
+            <div class="brand-logo">
+
+                <img
+                    src="/static/assets/images/inpa-logo.png"
+                    alt="Logo INPA"
+                >
+
+            </div>
+
+            <div class="brand-name">
+
+                <span class="brand-title">
+                    INPA
+                </span>
+
+                <span class="brand-subtitle">
+                    NETWORK ANALYZER
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="main-navigation">
+
+            <a href="#fonctionnement">
+                Fonctionnement
+            </a>
+
+            <a href="#fonctionnalites">
+                Fonctionnalités
+            </a>
+
+            <a href="#architecture">
+                Architecture
+            </a>
+
+            <a href="#securite">
+                Sécurité
+            </a>
+
+            <a
+                href="/dashboard"
+                class="nav-dashboard"
+            >
+                Dashboard
+            </a>
+
+        </nav>
+
+
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            aria-label="Ouvrir le menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         NAVIGATION MOBILE
+         ===================================================== -->
+
+    <div
+        class="mobile-menu"
+        id="mobile-menu"
+    >
+
+        <a href="#fonctionnement">
+            Fonctionnement
+        </a>
+
+        <a href="#fonctionnalites">
+            Fonctionnalités
+        </a>
+
+        <a href="#architecture">
+            Architecture
+        </a>
+
+        <a href="#securite">
+            Sécurité
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTENU
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+
+                <div class="status-badge">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        NETWORK INTELLIGENCE SYSTEM
+                    </span>
+
+                </div>
+
+
+                <p class="eyebrow">
+
+                    INTELLIGENT NETWORK
+                    PACKET ANALYZER
+
+                </p>
+
+
+                <h1>
+
+                    Comprenez
+
+                    <span>
+                        réellement
+                    </span>
+
+                    ce qui se passe
+                    sur votre réseau.
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    INPA transforme les données réseau
+                    techniques en informations compréhensibles.
+
+                    Capturez, analysez, regroupez,
+                    détectez et expliquez votre trafic
+                    depuis une seule interface.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <a
+                        href="/download-agent"
+                        class="button button-primary"
+                    >
+
+                        <span class="button-icon">
+                            ↓
+                        </span>
+
+                        Télécharger l'agent Windows
+
+                    </a>
+
+
+                    <a
+                        href="#fonctionnement"
+                        class="button button-secondary"
+                    >
+
+                        Découvrir INPA
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+                <div class="hero-trust">
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            Analyse en temps réel
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            Données structurées
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            Analyse autorisée
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EMBLÈME
+                 ================================================= -->
+
+            <div class="hero-visual">
+
+
+                <div class="visual-orbit orbit-one"></div>
+
+                <div class="visual-orbit orbit-two"></div>
+
+
+                <div class="visual-glow"></div>
+
+
+                <img
+                    src="/static/assets/images/inpa-logo.png"
+                    alt="Emblème cybersécurité INPA"
+                    class="hero-emblem"
+                >
+
+
+                <div class="visual-card visual-card-top">
+
+                    <span class="mini-label">
+                        SYSTEM
+                    </span>
+
+                    <strong>
+                        PROTECTED
+                    </strong>
+
+                    <span class="mini-status">
+                        ● ONLINE
+                    </span>
+
+                </div>
+
+
+                <div class="visual-card visual-card-bottom">
+
+                    <span class="mini-label">
+                        ANALYSIS
+                    </span>
+
+                    <strong>
+                        INTELLIGENT
+                    </strong>
+
+                    <span class="mini-status">
+                        REAL TIME
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BARRE DE STATISTIQUES
+             ================================================= -->
+
+        <section class="quick-stats">
+
+
+            <div class="quick-stat">
+
+                <span class="stat-number">
+                    01
+                </span>
+
+                <div>
+
+                    <strong>
+                        Capture
+                    </strong>
+
+                    <span>
+                        Trafic réseau réel
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <span class="stat-number">
+                    02
+                </span>
+
+                <div>
+
+                    <strong>
+                        Analyse
+                    </strong>
+
+                    <span>
+                        Paquets et communications
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <span class="stat-number">
+                    03
+                </span>
+
+                <div>
+
+                    <strong>
+                        Détection
+                    </strong>
+
+                    <span>
+                        Activités inhabituelles
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <span class="stat-number">
+                    04
+                </span>
+
+                <div>
+
+                    <strong>
+                        Explication
+                    </strong>
+
+                    <span>
+                        Compréhension humaine
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             POURQUOI INPA
+             ================================================= -->
+
+        <section class="intro-section">
+
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+
+                    <p class="section-label">
+                        L'OBJECTIF
+                    </p>
+
+                    <h2>
+                        Un paquet réseau raconte une histoire.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="intro-grid">
+
+
+                <div class="intro-text">
+
+                    <p>
+
+                        Un analyseur traditionnel peut afficher
+                        des milliers de paquets, des adresses IP,
+                        des ports et des protocoles.
+
+                    </p>
+
+
+                    <p>
+
+                        Mais comprendre ce que ces informations
+                        signifient réellement demande du temps
+                        et des connaissances techniques.
+
+                    </p>
+
+
+                    <p class="highlight-text">
+
+                        INPA a été conçu pour aller plus loin :
+
+                        <strong>
+                            transformer le trafic technique
+                            en compréhension.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline">
+
+
+                    <div class="pipeline-step">
+
+                        <span>
+                            01
+                        </span>
+
+                        <strong>
+                            CAPTURER
+                        </strong>
+
+                        <small>
+                            Observer le trafic autorisé.
+                        </small>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <span>
+                            02
+                        </span>
+
+                        <strong>
+                            ANALYSER
+                        </strong>
+
+                        <small>
+                            Extraire les informations réseau.
+                        </small>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <span>
+                            03
+                        </span>
+
+                        <strong>
+                            COMPRENDRE
+                        </strong>
+
+                        <small>
+                            Regrouper et contextualiser.
+                        </small>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <span>
+                            04
+                        </span>
+
+                        <strong>
+                            EXPLIQUER
+                        </strong>
+
+                        <small>
+                            Présenter les résultats simplement.
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FONCTIONNEMENT
+             ================================================= -->
+
+        <section
+            id="fonctionnement"
+            class="section"
+        >
+
+
+            <div class="section-heading centered">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <div>
+
+                    <p class="section-label">
+                        COMMENT ÇA FONCTIONNE ?
+                    </p>
+
+                    <h2>
+                        Le Web contrôle.
+                        L'agent observe.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Une application Web hébergée sur Internet
+                ne peut pas directement accéder à la carte
+                réseau de votre ordinateur.
+
+                C'est pourquoi INPA utilise un agent local.
+
+            </p>
+
+
+            <div class="architecture-flow">
+
+
+                <div class="architecture-node">
+
+
+                    <div class="node-icon">
+                        ◈
+                    </div>
+
+
+                    <span class="node-number">
+                        01
+                    </span>
+
+
+                    <h3>
+                        INPA WEB
+                    </h3>
+
+
+                    <p>
+                        Dashboard,
+                        visualisation et contrôle.
+                    </p>
+
+
+                </div>
+
+
+                <div class="architecture-connection">
+
+                    <span>
+                        SECURE CONNECTION
+                    </span>
+
+                    <div></div>
+
+                </div>
+
+
+                <div class="architecture-node active">
+
+
+                    <div class="node-icon">
+                        ◉
+                    </div>
+
+
+                    <span class="node-number">
+                        02
+                    </span>
+
+
+                    <h3>
+                        INPA AGENT
+                    </h3>
+
+
+                    <p>
+                        Capture et analyse
+                        locale.
+                    </p>
+
+
+                </div>
+
+
+                <div class="architecture-connection">
+
+                    <span>
+                        NETWORK
+                    </span>
+
+                    <div></div>
+
+                </div>
+
+
+                <div class="architecture-node">
+
+
+                    <div class="node-icon">
+                        ◎
+                    </div>
+
+
+                    <span class="node-number">
+                        03
+                    </span>
+
+
+                    <h3>
+                        VOTRE RÉSEAU
+                    </h3>
+
+
+                    <p>
+                        Wi-Fi ou Ethernet
+                        de votre machine.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             POURQUOI INSTALLER L'AGENT
+             ================================================= -->
+
+        <section class="agent-section">
+
+
+            <div class="agent-visual">
+
+
+                <div class="agent-window">
+
+
+                    <div class="window-header">
+
+                        <div class="window-dots">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <span>
+                            INPA AGENT
+                        </span>
+
+                    </div>
+
+
+                    <div class="window-body">
+
+
+                        <div class="agent-status">
+
+                            <span class="status-dot"></span>
+
+                            AGENT CONNECTÉ
+
+                        </div>
+
+
+                        <div class="agent-interface">
+
+                            <div>
+
+                                <span>
+                                    INTERFACE
+                                </span>
+
+                                <strong>
+                                    Wi-Fi
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    STATUS
+                                </span>
+
+                                <strong>
+                                    READY
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    CAPTURE
+                                </span>
+
+                                <strong>
+                                    STOPPED
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="fake-terminal">
+
+                            <p>
+                                <span>
+                                    INPA
+                                </span>
+                                Agent initialized
+                            </p>
+
+                            <p>
+                                Interface detected:
+                                Wi-Fi
+                            </p>
+
+                            <p>
+                                Waiting for capture...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="agent-content">
+
+
+                <p class="section-label">
+                    POURQUOI L'AGENT ?
+                </p>
+
+
+                <h2>
+                    Votre navigateur ne peut pas
+                    observer directement votre carte réseau.
+                </h2>
+
+
+                <p>
+
+                    Le serveur Web INPA se trouve sur Internet.
+                    Il ne peut donc pas écouter directement
+                    le trafic qui circule sur votre ordinateur.
+
+                </p>
+
+
+                <div class="agent-reason">
+
+
+                    <div class="reason-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Installation locale
+                        </strong>
+
+                        <p>
+                            L'agent fonctionne directement
+                            sur votre ordinateur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="agent-reason">
+
+
+                    <div class="reason-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Capture autorisée
+                        </strong>
+
+                        <p>
+                            Il accède aux données réseau
+                            visibles depuis votre machine.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="agent-reason">
+
+
+                    <div class="reason-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Contrôle depuis le Web
+                        </strong>
+
+                        <p>
+                            Les résultats sont ensuite
+                            présentés dans le dashboard INPA.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="/download-agent"
+                    class="button button-primary agent-button"
+                >
+
+                    Télécharger INPA Agent
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             ARCHITECTURE
+             ================================================= -->
+
+        <section
+            id="architecture"
+            class="section"
+        >
+
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <div>
+
+                    <p class="section-label">
+                        ARCHITECTURE
+                    </p>
+
+                    <h2>
+                        Une architecture pensée
+                        pour le réseau réel.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="architecture-diagram">
+
+
+                <div class="diagram-column">
+
+
+                    <span class="diagram-label">
+                        UTILISATEUR
+                    </span>
+
+
+                    <div class="diagram-card">
+
+                        <div class="diagram-icon">
+                            ◉
+                        </div>
+
+                        <strong>
+                            Navigateur
+                        </strong>
+
+                        <small>
+                            Dashboard INPA
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+
+                <div class="diagram-column">
+
+
+                    <span class="diagram-label">
+                        CLOUD
+                    </span>
+
+
+                    <div class="diagram-card">
+
+                        <div class="diagram-icon">
+                            ◈
+                        </div>
+
+                        <strong>
+                            Railway
+                        </strong>
+
+                        <small>
+                            API / WebSocket
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+
+                <div class="diagram-column">
+
+
+                    <span class="diagram-label">
+                        LOCAL
+                    </span>
+
+
+                    <div class="diagram-card highlighted">
+
+                        <div class="diagram-icon">
+                            ◉
+                        </div>
+
+                        <strong>
+                            INPA Agent
+                        </strong>
+
+                        <small>
+                            Capture réseau
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+
+                <div class="diagram-column">
+
+
+                    <span class="diagram-label">
+                        DATA
+                    </span>
+
+
+                    <div class="diagram-card">
+
+                        <div class="diagram-icon">
+                            ◎
+                        </div>
+
+                        <strong>
+                            Supabase
+                        </strong>
+
+                        <small>
+                            Historique
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FONCTIONNALITÉS
+             ================================================= -->
+
+        <section
+            id="fonctionnalites"
+            class="section"
+        >
+
+
+            <div class="section-heading centered">
+
+                <span class="section-number">
+                    04
+                </span>
+
+                <div>
+
+                    <p class="section-label">
+                        FONCTIONNALITÉS
+                    </p>
+
+                    <h2>
+                        Tout ce qu'il faut
+                        pour comprendre le trafic.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        01
+                    </span>
+
+                    <div class="feature-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Traffic
+                    </h3>
+
+                    <p>
+                        Observez les paquets,
+                        timestamps, tailles,
+                        sources et destinations.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        02
+                    </span>
+
+                    <div class="feature-icon">
+                        ⇄
+                    </div>
+
+                    <h3>
+                        Connections
+                    </h3>
+
+                    <p>
+                        Regroupez les communications
+                        et comprenez qui communique
+                        avec qui.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        03
+                    </span>
+
+                    <div class="feature-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Protocols
+                    </h3>
+
+                    <p>
+                        Identifiez TCP, UDP, DNS,
+                        ICMP, ARP, HTTP et HTTPS
+                        lorsque cela est possible.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        04
+                    </span>
+
+                    <div class="feature-icon">
+                        !
+                    </div>
+
+                    <h3>
+                        Alerts
+                    </h3>
+
+                    <p>
+                        Détectez certains comportements
+                        inhabituels sans les présenter
+                        automatiquement comme des attaques.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        05
+                    </span>
+
+                    <div class="feature-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Analysis
+                    </h3>
+
+                    <p>
+                        Transformez les données techniques
+                        en informations compréhensibles.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <span class="feature-number">
+                        06
+                    </span>
+
+                    <div class="feature-icon">
+                        AI
+                    </div>
+
+                    <h3>
+                        Intelligence
+                    </h3>
+
+                    <p>
+                        L'IA peut expliquer et contextualiser
+                        les données structurées sans inventer
+                        de faits.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FAIT / INTERPRÉTATION / HYPOTHÈSE
+             ================================================= -->
+
+        <section class="explanation-section">
+
+
+            <div class="explanation-content">
+
+
+                <p class="section-label">
+                    FIABILITÉ DE L'ANALYSE
+                </p>
+
+
+                <h2>
+                    Une anomalie n'est pas automatiquement
+                    une attaque.
+                </h2>
+
+
+                <p>
+
+                    INPA sépare volontairement les informations
+                    observées des interprétations et des hypothèses.
+
+                    L'objectif est de produire une analyse
+                    compréhensible sans transformer une supposition
+                    en certitude.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="explanation-cards">
+
+
+                <div class="explanation-card fact">
+
+                    <span>
+                        FAIT OBSERVÉ
+                    </span>
+
+                    <strong>
+                        Ce qui a réellement été capturé.
+                    </strong>
+
+                    <p>
+                        Exemple : une connexion TCP
+                        vers le port 443 a été observée.
+                    </p>
+
+                </div>
+
+
+                <div class="explanation-card interpretation">
+
+                    <span>
+                        INTERPRÉTATION
+                    </span>
+
+                    <strong>
+                        Ce que les données peuvent signifier.
+                    </strong>
+
+                    <p>
+                        Le port 443 est généralement
+                        associé aux communications HTTPS.
+                    </p>
+
+                </div>
+
+
+                <div class="explanation-card hypothesis">
+
+                    <span>
+                        HYPOTHÈSE
+                    </span>
+
+                    <strong>
+                        Une possibilité qui doit être vérifiée.
+                    </strong>
+
+                    <p>
+                        Cette communication pourrait
+                        correspondre à un service Web.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SÉCURITÉ / CONFIDENTIALITÉ
+             ================================================= -->
+
+        <section
+            id="securite"
+            class="security-section"
+        >
+
+
+            <div class="security-content">
+
+
+                <p class="section-label">
+                    SÉCURITÉ & CONFIDENTIALITÉ
+                </p>
+
+
+                <h2>
+                    Analysez uniquement
+                    ce que vous êtes autorisé à analyser.
+                </h2>
+
+
+                <p>
+
+                    INPA est conçu pour fonctionner dans des
+                    environnements où l'utilisateur dispose
+                    de l'autorisation nécessaire pour effectuer
+                    une analyse réseau.
+
+                </p>
+
+
+                <div class="security-points">
+
+
+                    <div>
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <strong>
+                            Capture contrôlée
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <strong>
+                            Données minimisées
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <strong>
+                            Secrets protégés
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <strong>
+                            Analyse transparente
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="security-shield">
+
+                <img
+                    src="/static/assets/images/inpa-logo.png"
+                    alt="Sécurité INPA"
+                >
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             LIMITES
+             ================================================= -->
+
+        <section class="limits-section">
+
+
+            <p class="section-label">
+                À SAVOIR
+            </p>
+
+
+            <h2>
+                Une visibilité réaliste,
+                pas une promesse magique.
+            </h2>
+
+
+            <p>
+
+                L'agent INPA analyse principalement le trafic
+                visible depuis la machine sur laquelle il est
+                installé.
+
+                Il ne permet pas automatiquement d'observer
+                tous les appareils connectés au même réseau.
+
+            </p>
+
+
+            <div class="limit-example">
+
+
+                <div class="limit-device">
+
+                    <span>
+                        ROUTEUR
+                    </span>
+
+                    <div>
+                        ◎
+                    </div>
+
+                </div>
+
+
+                <div class="limit-line"></div>
+
+
+                <div class="limit-device active">
+
+                    <span>
+                        PC + INPA
+                    </span>
+
+                    <div>
+                        ◉
+                    </div>
+
+                    <small>
+                        ANALYSÉ
+                    </small>
+
+                </div>
+
+
+                <div class="limit-line muted"></div>
+
+
+                <div class="limit-device muted-device">
+
+                    <span>
+                        AUTRE APPAREIL
+                    </span>
+
+                    <div>
+                        ○
+                    </div>
+
+                    <small>
+                        NON OBSERVÉ
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CALL TO ACTION
+             ================================================= -->
+
+        <section class="final-cta">
+
+
+            <div class="cta-glow"></div>
+
+
+            <div class="cta-content">
+
+
+                <p class="section-label">
+                    PRÊT À COMMENCER ?
+                </p>
+
+
+                <h2>
+                    Transformez votre trafic réseau
+                    en compréhension.
+                </h2>
+
+
+                <p>
+                    Installez l'agent INPA,
+                    connectez votre machine
+                    et commencez votre analyse.
+                </p>
+
+
+                <div class="cta-actions">
+
+
+                    <a
+                        href="/download-agent"
+                        class="button button-primary"
+                    >
+
+                        Télécharger l'agent
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="/dashboard"
+                        class="button button-secondary"
+                    >
+
+                        Ouvrir le Dashboard
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+
+        <div class="footer-brand">
+
+
+            <img
+                src="/static/assets/images/inpa-logo.png"
+                alt="INPA"
+            >
+
+
+            <div>
+
+                <strong>
+                    INPA
+                </strong>
+
+                <span>
+                    Intelligent Network Packet Analyzer
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-right">
+
+            <span>
+                Analyse réseau intelligent
+            </span>
+
+            <span>
+                © 2026 INPA
+            </span>
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="/static/js/app.js"></script>
+
+
+    <script>
+
+        /*
+         * Menu mobile
+         */
+
+        const mobileButton =
+            document.getElementById(
+                "mobile-menu-button"
+            );
+
+        const mobileMenu =
+            document.getElementById(
+                "mobile-menu"
+            );
+
+
+        if (
+            mobileButton &&
+            mobileMenu
+        ) {
+
+            mobileButton.addEventListener(
+                "click",
+                () => {
+
+                    mobileMenu.classList.toggle(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            mobileMenu
+                .querySelectorAll("a")
+                .forEach(
+                    (link) => {
+
+                        link.addEventListener(
+                            "click",
+                            () => {
+
+                                mobileMenu
+                                    .classList
+                                    .remove(
+                                        "active"
+                                    );
+
+                            }
+                        );
+
+                    }
+                );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

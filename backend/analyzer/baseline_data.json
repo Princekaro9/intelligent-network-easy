@@ -1,0 +1,2133 @@
+{
+  "generation": 1,
+  "profile": {
+    "summary": {
+      "packet_count": 1000,
+      "total_bytes": 157321,
+      "first_seen": "2026-10-11T23:50:34.656204",
+      "last_seen": "2026-10-11T23:50:37.755693",
+      "duration_seconds": 3.099489
+    },
+    "devices": {
+      "observed_sources": 112,
+      "sources": [
+        {
+          "value": "fe80::1",
+          "count": 216
+        },
+        {
+          "value": "fe80::8356:ca05:e849:3ac3",
+          "count": 24
+        },
+        {
+          "value": "fe80::202d:8dff:fece:7f0b",
+          "count": 22
+        },
+        {
+          "value": "10.10.13.218",
+          "count": 22
+        },
+        {
+          "value": "fe80::807:c1ff:fe0b:6d2a",
+          "count": 22
+        },
+        {
+          "value": "10.10.12.223",
+          "count": 21
+        },
+        {
+          "value": "10.10.11.196",
+          "count": 21
+        },
+        {
+          "value": "fe80::dc7a:41ff:fe23:79f8",
+          "count": 21
+        },
+        {
+          "value": "10.10.10.1",
+          "count": 19
+        },
+        {
+          "value": "10.10.11.213",
+          "count": 18
+        },
+        {
+          "value": "fe80::6c82:a1ff:fe31:59c5",
+          "count": 18
+        },
+        {
+          "value": "10.10.12.18",
+          "count": 18
+        },
+        {
+          "value": "10.10.10.231",
+          "count": 17
+        },
+        {
+          "value": "fe80::6814:2fff:fecb:bd0c",
+          "count": 17
+        },
+        {
+          "value": "10.10.15.66",
+          "count": 14
+        },
+        {
+          "value": "fe80::746b:62ff:fe38:2444",
+          "count": 14
+        },
+        {
+          "value": "10.10.14.189",
+          "count": 14
+        },
+        {
+          "value": "fe80::d01a:92ff:fe65:7479",
+          "count": 14
+        },
+        {
+          "value": "10.10.12.212",
+          "count": 14
+        },
+        {
+          "value": "fe80::88bf:1bff:fe31:2097",
+          "count": 14
+        },
+        {
+          "value": "10.10.15.8",
+          "count": 14
+        },
+        {
+          "value": "fe80::bcff:2dff:fe36:d83c",
+          "count": 14
+        },
+        {
+          "value": "10.10.13.4",
+          "count": 14
+        },
+        {
+          "value": "fe80::2a53:3d62:aa1d:21be",
+          "count": 14
+        },
+        {
+          "value": "10.10.14.79",
+          "count": 12
+        },
+        {
+          "value": "10.10.10.139",
+          "count": 11
+        },
+        {
+          "value": "fe80::4c61:f4ff:fe4f:fc89",
+          "count": 11
+        },
+        {
+          "value": "10.10.15.252",
+          "count": 11
+        },
+        {
+          "value": "fe80::bcfa:7dff:fe17:8b21",
+          "count": 11
+        },
+        {
+          "value": "fe80::62fb:ff:fec1:e0b2",
+          "count": 11
+        },
+        {
+          "value": "10.10.15.136",
+          "count": 11
+        },
+        {
+          "value": "fe80::aaf9:683b:d5d8:a59b",
+          "count": 11
+        },
+        {
+          "value": "10.10.12.104",
+          "count": 10
+        },
+        {
+          "value": "fe80::6000:d2ff:fea0:3bfe",
+          "count": 10
+        },
+        {
+          "value": "10.10.12.87",
+          "count": 10
+        },
+        {
+          "value": "fe80::e883:15ff:fe96:4c4",
+          "count": 10
+        },
+        {
+          "value": "10.10.12.136",
+          "count": 10
+        },
+        {
+          "value": "fe80::ecbc:bfff:feda:2984",
+          "count": 10
+        },
+        {
+          "value": "10.10.9.200",
+          "count": 10
+        },
+        {
+          "value": "10.10.10.241",
+          "count": 10
+        },
+        {
+          "value": "fe80::1cb3:51ff:fedb:f524",
+          "count": 10
+        },
+        {
+          "value": "10.10.11.24",
+          "count": 9
+        },
+        {
+          "value": "10.10.15.39",
+          "count": 8
+        },
+        {
+          "value": "fe80::5cf1:6896:8391:f75e",
+          "count": 8
+        },
+        {
+          "value": "10.10.12.75",
+          "count": 8
+        },
+        {
+          "value": "fe80::5032:bfff:febc:22e9",
+          "count": 8
+        },
+        {
+          "value": "10.10.12.162",
+          "count": 7
+        },
+        {
+          "value": "fe80::b8c1:53ff:fe09:ac2b",
+          "count": 7
+        },
+        {
+          "value": "10.10.11.104",
+          "count": 6
+        },
+        {
+          "value": "fe80::7:79ff:fec3:d6ba",
+          "count": 6
+        },
+        {
+          "value": "10.10.12.10",
+          "count": 6
+        },
+        {
+          "value": "fe80::2cf8:b5ff:fecd:f9f0",
+          "count": 6
+        },
+        {
+          "value": "10.10.11.212",
+          "count": 6
+        },
+        {
+          "value": "10.10.12.244",
+          "count": 5
+        },
+        {
+          "value": "fe80::381f:95ff:fec8:67a1",
+          "count": 5
+        },
+        {
+          "value": "10.10.9.17",
+          "count": 5
+        },
+        {
+          "value": "fe80::346d:2eff:fe42:dcac",
+          "count": 5
+        },
+        {
+          "value": "10.10.13.220",
+          "count": 5
+        },
+        {
+          "value": "10.10.13.245",
+          "count": 5
+        },
+        {
+          "value": "fe80::1d7a:a79e:d13f:a2f5",
+          "count": 5
+        },
+        {
+          "value": "10.10.12.188",
+          "count": 5
+        },
+        {
+          "value": "fe80::d412:20ff:fe02:e2f1",
+          "count": 5
+        },
+        {
+          "value": "10.10.11.103",
+          "count": 5
+        },
+        {
+          "value": "fe80::a01a:fdff:fe97:5b5d",
+          "count": 5
+        },
+        {
+          "value": "10.10.9.183",
+          "count": 5
+        },
+        {
+          "value": "fe80::6077:86ff:fe2a:76c",
+          "count": 5
+        },
+        {
+          "value": "10.10.9.33",
+          "count": 4
+        },
+        {
+          "value": "10.10.11.147",
+          "count": 3
+        },
+        {
+          "value": "fe80::14ff:8b26:5605:cde5",
+          "count": 3
+        },
+        {
+          "value": "172.64.155.209",
+          "count": 2
+        },
+        {
+          "value": "10.10.14.53",
+          "count": 2
+        },
+        {
+          "value": "fe80::ad4a:416f:33ae:1b71",
+          "count": 1
+        },
+        {
+          "value": "10.10.12.81",
+          "count": 1
+        },
+        {
+          "value": "fe80::1c83:11c0:337c:bfd2",
+          "count": 1
+        },
+        {
+          "value": "fe80::a0a9:9da8:33b2:ddf7",
+          "count": 1
+        },
+        {
+          "value": "fe80::d0d7:8f5:335a:9174",
+          "count": 1
+        },
+        {
+          "value": "fe80::3843:6cff:feeb:a961",
+          "count": 1
+        },
+        {
+          "value": "fe80::b485:6d59:336a:5c47",
+          "count": 1
+        },
+        {
+          "value": "10.10.11.220",
+          "count": 1
+        },
+        {
+          "value": "fe80::64c4:3bff:fee9:3631",
+          "count": 1
+        },
+        {
+          "value": "10.10.14.97",
+          "count": 1
+        },
+        {
+          "value": "fe80::a0f1:71ff:fe90:163f",
+          "count": 1
+        },
+        {
+          "value": "188.92.44.64",
+          "count": 1
+        },
+        {
+          "value": "fe80::9430:1d4b:53c8:3a37",
+          "count": 1
+        },
+        {
+          "value": "40.79.163.154",
+          "count": 1
+        },
+        {
+          "value": "10.10.11.135",
+          "count": 1
+        },
+        {
+          "value": "fe80::d5d2:3616:a516:8fcb",
+          "count": 1
+        },
+        {
+          "value": "10.10.15.27",
+          "count": 1
+        },
+        {
+          "value": "fe80::2f15:cfc:ce35:1324",
+          "count": 1
+        },
+        {
+          "value": "10.10.14.198",
+          "count": 1
+        },
+        {
+          "value": "fe80::64ef:40ff:fe52:92e",
+          "count": 1
+        },
+        {
+          "value": "10.10.12.97",
+          "count": 1
+        },
+        {
+          "value": "fe80::e808:34ff:fe1e:e62e",
+          "count": 1
+        },
+        {
+          "value": "10.10.10.63",
+          "count": 1
+        },
+        {
+          "value": "fe80::2439:4bff:fe6f:ec21",
+          "count": 1
+        },
+        {
+          "value": "10.10.13.130",
+          "count": 1
+        },
+        {
+          "value": "fe80::3c9b:61ff:fedd:5c6f",
+          "count": 1
+        },
+        {
+          "value": "fe80::8501:d982:33b3:4e8f",
+          "count": 1
+        },
+        {
+          "value": "fe80::f8c3:99b2:3352:1880",
+          "count": 1
+        },
+        {
+          "value": "fe80::7067:ae4c:33a1:25f3",
+          "count": 1
+        },
+        {
+          "value": "fe80::b15f:dd2:33e8:74e7",
+          "count": 1
+        },
+        {
+          "value": "fe80::c1b1:1564:33b2:9795",
+          "count": 1
+        },
+        {
+          "value": "fe80::51a7:d36d:33dd:6435",
+          "count": 1
+        },
+        {
+          "value": "fe80::e8cd:924c:3305:a194",
+          "count": 1
+        },
+        {
+          "value": "fe80::3027:1bf2:3306:1700",
+          "count": 1
+        },
+        {
+          "value": "fe80::8512:42a0:334b:35e6",
+          "count": 1
+        },
+        {
+          "value": "fe80::adfc:8a9a:339e:2413",
+          "count": 1
+        },
+        {
+          "value": "fe80::c0f7:8bd9:3355:c149",
+          "count": 1
+        },
+        {
+          "value": "fe80::2815:8ac2:336f:8c56",
+          "count": 1
+        },
+        {
+          "value": "fe80::b80f:7ec3:335a:11f4",
+          "count": 1
+        },
+        {
+          "value": "fe80::4189:9ee7:333b:21d0",
+          "count": 1
+        },
+        {
+          "value": "fe80::5d79:d6bb:3391:2518",
+          "count": 1
+        }
+      ],
+      "destinations": [
+        {
+          "value": "224.0.0.251",
+          "count": 322
+        },
+        {
+          "value": "ff02::fb",
+          "count": 321
+        },
+        {
+          "value": "fe80::8356:ca05:e849:3ac3",
+          "count": 193
+        },
+        {
+          "value": "ff02::1",
+          "count": 54
+        },
+        {
+          "value": "239.255.255.250",
+          "count": 52
+        },
+        {
+          "value": "fe80::62fb:ff:fec1:e0b2",
+          "count": 11
+        },
+        {
+          "value": "fe80::1",
+          "count": 11
+        },
+        {
+          "value": "10.10.11.24",
+          "count": 8
+        },
+        {
+          "value": "10.10.10.1",
+          "count": 4
+        },
+        {
+          "value": "172.64.155.209",
+          "count": 2
+        },
+        {
+          "value": "ff02::1:ff00:1",
+          "count": 2
+        },
+        {
+          "value": "40.79.163.154",
+          "count": 1
+        },
+        {
+          "value": "188.92.44.64",
+          "count": 1
+        }
+      ]
+    },
+    "protocols": {
+      "unique": 4,
+      "distribution": [
+        {
+          "value": "UDP",
+          "count": 725
+        },
+        {
+          "value": "IPV6",
+          "count": 249
+        },
+        {
+          "value": "ARP",
+          "count": 18
+        },
+        {
+          "value": "TCP",
+          "count": 8
+        }
+      ]
+    },
+    "services": {
+      "unique": 5,
+      "distribution": [
+        {
+          "value": "mDNS",
+          "count": 643
+        },
+        {
+          "value": "INCONNU",
+          "count": 267
+        },
+        {
+          "value": "SSDP/UPnP",
+          "count": 52
+        },
+        {
+          "value": "DNS",
+          "count": 30
+        },
+        {
+          "value": "HTTPS/TLS",
+          "count": 8
+        }
+      ]
+    },
+    "ports": {
+      "service_ports": [
+        {
+          "value": "5353",
+          "count": 643
+        },
+        {
+          "value": "1900",
+          "count": 52
+        },
+        {
+          "value": "53",
+          "count": 30
+        },
+        {
+          "value": "443",
+          "count": 8
+        }
+      ],
+      "source_ports": [
+        {
+          "value": "5353",
+          "count": 643
+        },
+        {
+          "value": "53",
+          "count": 15
+        },
+        {
+          "value": "42097",
+          "count": 6
+        },
+        {
+          "value": "443",
+          "count": 4
+        },
+        {
+          "value": "19400",
+          "count": 4
+        },
+        {
+          "value": "53805",
+          "count": 3
+        },
+        {
+          "value": "55150",
+          "count": 3
+        },
+        {
+          "value": "58280",
+          "count": 3
+        },
+        {
+          "value": "39302",
+          "count": 3
+        },
+        {
+          "value": "47844",
+          "count": 3
+        },
+        {
+          "value": "50646",
+          "count": 3
+        },
+        {
+          "value": "54353",
+          "count": 2
+        },
+        {
+          "value": "55904",
+          "count": 2
+        },
+        {
+          "value": "55534",
+          "count": 2
+        },
+        {
+          "value": "54075",
+          "count": 2
+        },
+        {
+          "value": "56682",
+          "count": 2
+        },
+        {
+          "value": "53376",
+          "count": 1
+        },
+        {
+          "value": "63139",
+          "count": 1
+        },
+        {
+          "value": "34145",
+          "count": 1
+        },
+        {
+          "value": "37559",
+          "count": 1
+        },
+        {
+          "value": "35264",
+          "count": 1
+        },
+        {
+          "value": "54559",
+          "count": 1
+        },
+        {
+          "value": "34134",
+          "count": 1
+        },
+        {
+          "value": "54945",
+          "count": 1
+        },
+        {
+          "value": "60887",
+          "count": 1
+        },
+        {
+          "value": "38037",
+          "count": 1
+        },
+        {
+          "value": "40207",
+          "count": 1
+        },
+        {
+          "value": "37553",
+          "count": 1
+        },
+        {
+          "value": "33112",
+          "count": 1
+        },
+        {
+          "value": "53708",
+          "count": 1
+        },
+        {
+          "value": "44598",
+          "count": 1
+        },
+        {
+          "value": "59350",
+          "count": 1
+        },
+        {
+          "value": "49275",
+          "count": 1
+        },
+        {
+          "value": "52341",
+          "count": 1
+        },
+        {
+          "value": "47441",
+          "count": 1
+        },
+        {
+          "value": "63858",
+          "count": 1
+        },
+        {
+          "value": "58154",
+          "count": 1
+        },
+        {
+          "value": "49807",
+          "count": 1
+        },
+        {
+          "value": "46856",
+          "count": 1
+        },
+        {
+          "value": "33465",
+          "count": 1
+        },
+        {
+          "value": "45272",
+          "count": 1
+        },
+        {
+          "value": "49127",
+          "count": 1
+        },
+        {
+          "value": "60645",
+          "count": 1
+        },
+        {
+          "value": "57688",
+          "count": 1
+        },
+        {
+          "value": "64868",
+          "count": 1
+        },
+        {
+          "value": "64697",
+          "count": 1
+        },
+        {
+          "value": "50707",
+          "count": 1
+        },
+        {
+          "value": "51548",
+          "count": 1
+        },
+        {
+          "value": "57509",
+          "count": 1
+        }
+      ],
+      "destination_ports": [
+        {
+          "value": "5353",
+          "count": 643
+        },
+        {
+          "value": "1900",
+          "count": 52
+        },
+        {
+          "value": "53",
+          "count": 15
+        },
+        {
+          "value": "443",
+          "count": 4
+        },
+        {
+          "value": "53805",
+          "count": 3
+        },
+        {
+          "value": "54353",
+          "count": 2
+        },
+        {
+          "value": "55904",
+          "count": 2
+        },
+        {
+          "value": "55534",
+          "count": 2
+        },
+        {
+          "value": "54075",
+          "count": 2
+        },
+        {
+          "value": "56682",
+          "count": 2
+        },
+        {
+          "value": "63139",
+          "count": 1
+        },
+        {
+          "value": "53376",
+          "count": 1
+        },
+        {
+          "value": "63858",
+          "count": 1
+        },
+        {
+          "value": "58154",
+          "count": 1
+        },
+        {
+          "value": "49807",
+          "count": 1
+        },
+        {
+          "value": "64697",
+          "count": 1
+        }
+      ]
+    },
+    "communications": {
+      "private_to_private": 241,
+      "private_to_external": 755,
+      "external_to_private": 4
+    },
+    "network_discovery": {
+      "multicast_packets": 751,
+      "broadcast_packets": 0
+    },
+    "source_activity": [
+      {
+        "source": "fe80::1",
+        "packet_count": 216,
+        "unique_destinations": 2,
+        "destinations": [
+          "fe80::8356:ca05:e849:3ac3",
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 216
+        }
+      },
+      {
+        "source": "fe80::8356:ca05:e849:3ac3",
+        "packet_count": 24,
+        "unique_destinations": 3,
+        "destinations": [
+          "fe80::1",
+          "fe80::62fb:ff:fec1:e0b2",
+          "ff02::1:ff00:1"
+        ],
+        "protocols": {
+          "UDP": 11,
+          "IPV6": 13
+        }
+      },
+      {
+        "source": "fe80::202d:8dff:fece:7f0b",
+        "packet_count": 22,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 22
+        }
+      },
+      {
+        "source": "10.10.13.218",
+        "packet_count": 22,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 22
+        }
+      },
+      {
+        "source": "fe80::807:c1ff:fe0b:6d2a",
+        "packet_count": 22,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 22
+        }
+      },
+      {
+        "source": "10.10.12.223",
+        "packet_count": 21,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 21
+        }
+      },
+      {
+        "source": "10.10.11.196",
+        "packet_count": 21,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 21
+        }
+      },
+      {
+        "source": "fe80::dc7a:41ff:fe23:79f8",
+        "packet_count": 21,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 21
+        }
+      },
+      {
+        "source": "10.10.10.1",
+        "packet_count": 19,
+        "unique_destinations": 1,
+        "destinations": [
+          "10.10.11.24"
+        ],
+        "protocols": {
+          "ARP": 15,
+          "UDP": 4
+        }
+      },
+      {
+        "source": "10.10.11.213",
+        "packet_count": 18,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 18
+        }
+      },
+      {
+        "source": "fe80::6c82:a1ff:fe31:59c5",
+        "packet_count": 18,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 18
+        }
+      },
+      {
+        "source": "10.10.12.18",
+        "packet_count": 18,
+        "unique_destinations": 1,
+        "destinations": [
+          "239.255.255.250"
+        ],
+        "protocols": {
+          "UDP": 18
+        }
+      },
+      {
+        "source": "10.10.10.231",
+        "packet_count": 17,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 17
+        }
+      },
+      {
+        "source": "fe80::6814:2fff:fecb:bd0c",
+        "packet_count": 17,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 17
+        }
+      },
+      {
+        "source": "10.10.15.66",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "fe80::746b:62ff:fe38:2444",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "10.10.14.189",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "fe80::d01a:92ff:fe65:7479",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "10.10.12.212",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "fe80::88bf:1bff:fe31:2097",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "10.10.15.8",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "fe80::bcff:2dff:fe36:d83c",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "10.10.13.4",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "fe80::2a53:3d62:aa1d:21be",
+        "packet_count": 14,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 14
+        }
+      },
+      {
+        "source": "10.10.14.79",
+        "packet_count": 12,
+        "unique_destinations": 1,
+        "destinations": [
+          "239.255.255.250"
+        ],
+        "protocols": {
+          "UDP": 12
+        }
+      },
+      {
+        "source": "10.10.10.139",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "fe80::4c61:f4ff:fe4f:fc89",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "10.10.15.252",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "fe80::bcfa:7dff:fe17:8b21",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "fe80::62fb:ff:fec1:e0b2",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "fe80::8356:ca05:e849:3ac3"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "10.10.15.136",
+        "packet_count": 11,
+        "unique_destinations": 2,
+        "destinations": [
+          "224.0.0.251",
+          "239.255.255.250"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "fe80::aaf9:683b:d5d8:a59b",
+        "packet_count": 11,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 11
+        }
+      },
+      {
+        "source": "10.10.12.104",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "fe80::6000:d2ff:fea0:3bfe",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "10.10.12.87",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "fe80::e883:15ff:fe96:4c4",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "10.10.12.136",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "fe80::ecbc:bfff:feda:2984",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "10.10.9.200",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "10.10.10.241",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "fe80::1cb3:51ff:fedb:f524",
+        "packet_count": 10,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 10
+        }
+      },
+      {
+        "source": "10.10.11.24",
+        "packet_count": 9,
+        "unique_destinations": 5,
+        "destinations": [
+          "10.10.10.1",
+          "172.64.155.209",
+          "188.92.44.64",
+          "239.255.255.250",
+          "40.79.163.154"
+        ],
+        "protocols": {
+          "TCP": 4,
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.15.39",
+        "packet_count": 8,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 8
+        }
+      },
+      {
+        "source": "fe80::5cf1:6896:8391:f75e",
+        "packet_count": 8,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 8
+        }
+      },
+      {
+        "source": "10.10.12.75",
+        "packet_count": 8,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 8
+        }
+      },
+      {
+        "source": "fe80::5032:bfff:febc:22e9",
+        "packet_count": 8,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 8
+        }
+      },
+      {
+        "source": "10.10.12.162",
+        "packet_count": 7,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 7
+        }
+      },
+      {
+        "source": "fe80::b8c1:53ff:fe09:ac2b",
+        "packet_count": 7,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 7
+        }
+      },
+      {
+        "source": "10.10.11.104",
+        "packet_count": 6,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 6
+        }
+      },
+      {
+        "source": "fe80::7:79ff:fec3:d6ba",
+        "packet_count": 6,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 6
+        }
+      },
+      {
+        "source": "10.10.12.10",
+        "packet_count": 6,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 6
+        }
+      },
+      {
+        "source": "fe80::2cf8:b5ff:fecd:f9f0",
+        "packet_count": 6,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 6
+        }
+      },
+      {
+        "source": "10.10.11.212",
+        "packet_count": 6,
+        "unique_destinations": 1,
+        "destinations": [
+          "239.255.255.250"
+        ],
+        "protocols": {
+          "UDP": 6
+        }
+      },
+      {
+        "source": "10.10.12.244",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::381f:95ff:fec8:67a1",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.9.17",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::346d:2eff:fe42:dcac",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.13.220",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "239.255.255.250"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.13.245",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::1d7a:a79e:d13f:a2f5",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.12.188",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::d412:20ff:fe02:e2f1",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.11.103",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::a01a:fdff:fe97:5b5d",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.9.183",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "fe80::6077:86ff:fe2a:76c",
+        "packet_count": 5,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 5
+        }
+      },
+      {
+        "source": "10.10.9.33",
+        "packet_count": 4,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 4
+        }
+      },
+      {
+        "source": "10.10.11.147",
+        "packet_count": 3,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 3
+        }
+      },
+      {
+        "source": "fe80::14ff:8b26:5605:cde5",
+        "packet_count": 3,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 3
+        }
+      },
+      {
+        "source": "172.64.155.209",
+        "packet_count": 2,
+        "unique_destinations": 1,
+        "destinations": [
+          "10.10.11.24"
+        ],
+        "protocols": {
+          "TCP": 2
+        }
+      },
+      {
+        "source": "10.10.14.53",
+        "packet_count": 2,
+        "unique_destinations": 0,
+        "destinations": [],
+        "protocols": {
+          "ARP": 2
+        }
+      },
+      {
+        "source": "fe80::ad4a:416f:33ae:1b71",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "10.10.12.81",
+        "packet_count": 1,
+        "unique_destinations": 0,
+        "destinations": [],
+        "protocols": {
+          "ARP": 1
+        }
+      },
+      {
+        "source": "fe80::1c83:11c0:337c:bfd2",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::a0a9:9da8:33b2:ddf7",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::d0d7:8f5:335a:9174",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::3843:6cff:feeb:a961",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::b485:6d59:336a:5c47",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "10.10.11.220",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::64c4:3bff:fee9:3631",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.14.97",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::a0f1:71ff:fe90:163f",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "188.92.44.64",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "10.10.11.24"
+        ],
+        "protocols": {
+          "TCP": 1
+        }
+      },
+      {
+        "source": "fe80::9430:1d4b:53c8:3a37",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "40.79.163.154",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "10.10.11.24"
+        ],
+        "protocols": {
+          "TCP": 1
+        }
+      },
+      {
+        "source": "10.10.11.135",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::d5d2:3616:a516:8fcb",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.15.27",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::2f15:cfc:ce35:1324",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.14.198",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::64ef:40ff:fe52:92e",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.12.97",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::e808:34ff:fe1e:e62e",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.10.63",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::2439:4bff:fe6f:ec21",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "10.10.13.130",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "224.0.0.251"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::3c9b:61ff:fedd:5c6f",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::fb"
+        ],
+        "protocols": {
+          "UDP": 1
+        }
+      },
+      {
+        "source": "fe80::8501:d982:33b3:4e8f",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::f8c3:99b2:3352:1880",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::7067:ae4c:33a1:25f3",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::b15f:dd2:33e8:74e7",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::c1b1:1564:33b2:9795",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::51a7:d36d:33dd:6435",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::e8cd:924c:3305:a194",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::3027:1bf2:3306:1700",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::8512:42a0:334b:35e6",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::adfc:8a9a:339e:2413",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::c0f7:8bd9:3355:c149",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::2815:8ac2:336f:8c56",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::b80f:7ec3:335a:11f4",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::4189:9ee7:333b:21d0",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      },
+      {
+        "source": "fe80::5d79:d6bb:3391:2518",
+        "packet_count": 1,
+        "unique_destinations": 1,
+        "destinations": [
+          "ff02::1"
+        ],
+        "protocols": {
+          "IPV6": 1
+        }
+      }
+    ],
+    "interpretation": {
+      "observations": [
+        {
+          "observed_fact": "112 source(s) réseau ont été observées.",
+          "interpretation": "Le trafic provient de plusieurs appareils ou interfaces observés pendant la capture.",
+          "hypothesis": "Ces sources peuvent représenter plusieurs appareils actifs sur le réseau local."
+        },
+        {
+          "observed_fact": "13 destination(s) distincte(s) ont été observées.",
+          "interpretation": "Le trafic comporte plusieurs communications vers des destinations différentes.",
+          "hypothesis": "Cela peut correspondre à de la navigation, des services réseau, des mises à jour ou de la découverte de services."
+        },
+        {
+          "observed_fact": "4 protocole(s) distinct(s) ont été observés.",
+          "interpretation": "Le réseau utilise plusieurs mécanismes de communication pendant la période observée.",
+          "hypothesis": "La diversité des protocoles peut correspondre au fonctionnement normal de plusieurs services."
+        },
+        {
+          "observed_fact": "5 service(s) probable(s) ont été identifiés.",
+          "interpretation": "Certains ports et protocoles correspondent à des services réseau connus.",
+          "hypothesis": "Les services identifiés peuvent représenter des applications ou services réseau actifs."
+        },
+        {
+          "observed_fact": "751 paquet(s) multicast observé(s).",
+          "interpretation": "Une partie du trafic utilise une communication destinée à plusieurs hôtes.",
+          "hypothesis": "Cela peut correspondre à de la découverte de services comme mDNS ou SSDP."
+        }
+      ],
+      "communication_summary": {
+        "private_to_private": 241,
+        "private_to_external": 755,
+        "external_to_private": 4
+      }
+    }
+  }
+}

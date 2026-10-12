@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#020811"
+    >
+
+    <title>
+        INPA — Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="dashboard-background"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <a
+            href="/"
+            class="sidebar-brand"
+        >
+
+            <img
+                src="/static/assets/images/inpa-logo.png"
+                alt="INPA"
+            >
+
+            <div>
+
+                <strong>
+                    INPA
+                </strong>
+
+                <span>
+                    NETWORK ANALYZER
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                ANALYSE
+            </span>
+
+
+            <a
+                href="#overview"
+                class="sidebar-link active"
+            >
+
+                <span class="link-icon">
+                    ◈
+                </span>
+
+                Overview
+
+            </a>
+
+
+            <a
+                href="#traffic"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    ◉
+                </span>
+
+                Traffic
+
+            </a>
+
+
+            <a
+                href="#connections"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    ⇄
+                </span>
+
+                Connections
+
+            </a>
+
+
+            <a
+                href="#protocols"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    ◇
+                </span>
+
+                Protocols
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                SÉCURITÉ
+            </span>
+
+
+            <a
+                href="#alerts"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    !
+                </span>
+
+                Alerts
+
+                <span
+                    class="sidebar-count"
+                    id="sidebar-alert-count"
+                >
+                    3
+                </span>
+
+            </a>
+
+
+            <a
+                href="#analysis"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    ◎
+                </span>
+
+                Analysis
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                HISTORIQUE
+            </span>
+
+
+            <a
+                href="#history"
+                class="sidebar-link"
+            >
+
+                <span class="link-icon">
+                    ◷
+                </span>
+
+                Historique
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+
+            <div class="agent-mini-card">
+
+                <span class="agent-mini-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Agent INPA
+                    </strong>
+
+                    <span>
+                        Prêt
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="/"
+                class="back-home"
+            >
+
+                ← Retour au site
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="dashboard-topbar">
+
+
+            <div>
+
+                <span class="page-label">
+                    NETWORK INTELLIGENCE
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <div class="agent-status">
+
+
+                    <span class="status-indicator"></span>
+
+
+                    <div>
+
+                        <span>
+                            AGENT
+                        </span>
+
+                        <strong>
+                            CONNECTÉ
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    id="capture-button"
+                    class="capture-button"
+                >
+
+                    <span
+                        id="capture-icon"
+                        class="capture-icon"
+                    >
+                        ●
+                    </span>
+
+                    <span id="capture-text">
+                        Démarrer la capture
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+        <section class="agent-download-panel" aria-label="Installation de l'agent local">
+            <div>
+                <strong>Connecter ce PC à INPA</strong>
+                <p>Télécharge et lance l’agent Windows en tant qu’administrateur. Au premier démarrage, indique l’adresse HTTPS de cette application et le jeton d’agent fourni par son administrateur. Npcap doit être installé pour la capture réseau.</p>
+            </div>
+            <a class="small-button" href="/download-agent" download="INPA-Agent.exe">Télécharger INPA-Agent.exe</a>
+            <button class="small-button" id="agent-config-button" type="button">Configurer mon agent</button>
+        </section>
+
+
+        <!-- =================================================
+             AGENT BAR
+             ================================================= -->
+
+        <section class="agent-bar">
+
+
+            <div class="interface-selector">
+
+
+                <span class="interface-icon">
+                    ◉
+                </span>
+
+
+                <div>
+
+                    <span>
+                        INTERFACE RÉSEAU
+                    </span>
+
+                    <strong id="interface-name">
+                        Wi-Fi
+                    </strong>
+
+                </div>
+
+
+                <span class="selector-arrow">
+                    ▾
+                </span>
+
+            </div>
+
+
+            <div class="capture-state">
+
+
+                <span class="state-label">
+                    ÉTAT DE LA CAPTURE
+                </span>
+
+
+                <strong
+                    id="capture-state"
+                    class="state-stopped"
+                >
+                    ARRÊTÉE
+                </strong>
+
+
+            </div>
+
+
+            <div class="session-info">
+
+                <span>
+                    SESSION
+                </span>
+
+                <strong id="session-time">
+                    00:04:32
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             STATISTIQUES
+             ================================================= -->
+
+        <section
+            id="overview"
+            class="stats-grid"
+        >
+
+
+            <article class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span>
+                        PAQUETS
+                    </span>
+
+                    <div class="stat-icon">
+                        ◉
+                    </div>
+
+                </div>
+
+
+                <strong id="stat-packets">
+                    0
+                </strong>
+
+
+                <span class="stat-description">
+                    paquets observés
+                </span>
+
+
+                <div class="stat-line">
+
+                    <span></span>
+
+                </div>
+
+
+            </article>
+
+
+            <article class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span>
+                        DONNÉES
+                    </span>
+
+                    <div class="stat-icon">
+                        ◇
+                    </div>
+
+                </div>
+
+
+                <strong id="stat-bytes">
+                    0 MB
+                </strong>
+
+
+                <span class="stat-description">
+                    données transférées
+                </span>
+
+
+                <div class="stat-line">
+
+                    <span></span>
+
+                </div>
+
+
+            </article>
+
+
+            <article class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span>
+                        CONNEXIONS
+                    </span>
+
+                    <div class="stat-icon">
+                        ⇄
+                    </div>
+
+                </div>
+
+
+                <strong id="stat-connections">
+                    0
+                </strong>
+
+
+                <span class="stat-description">
+                    communications identifiées
+                </span>
+
+
+                <div class="stat-line">
+
+                    <span></span>
+
+                </div>
+
+
+            </article>
+
+
+            <article class="stat-card alert-stat">
+
+
+                <div class="stat-card-top">
+
+                    <span>
+                        ALERTES
+                    </span>
+
+                    <div class="stat-icon">
+                        !
+                    </div>
+
+                </div>
+
+
+                <strong id="stat-alerts">
+                    0
+                </strong>
+
+
+                <span class="stat-description">
+                    comportements inhabituels
+                </span>
+
+
+                <div class="stat-line">
+
+                    <span></span>
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =================================================
+             TRAFFIC + PROTOCOLS
+             ================================================= -->
+
+        <section class="analysis-grid">
+
+
+            <article
+                id="traffic"
+                class="panel traffic-panel"
+            >
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <span class="panel-label">
+                            TRAFFIC
+                        </span>
+
+                        <h2>
+                            Activité réseau
+                        </h2>
+
+                    </div>
+
+
+                    <span class="live-badge">
+
+                        <span></span>
+
+                        LIVE
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="chart-container">
+
+
+                    <div class="chart-y">
+
+                        <span>
+                            200
+                        </span>
+
+                        <span>
+                            150
+                        </span>
+
+                        <span>
+                            100
+                        </span>
+
+                        <span>
+                            50
+                        </span>
+
+                        <span>
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="traffic-chart"
+                        class="traffic-chart"
+                    >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="chart-footer">
+
+
+                    <span>
+                        Activité des paquets
+                    </span>
+
+
+                    <span>
+                        Dernières minutes
+                    </span>
+
+
+                </div>
+
+
+            </article>
+
+
+            <article
+                id="protocols"
+                class="panel protocols-panel"
+            >
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            PROTOCOLS
+                        </span>
+
+                        <h2>
+                            Répartition
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="protocol-list"
+                    class="protocol-list"
+                >
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =================================================
+             PAQUETS
+             ================================================= -->
+
+        <section
+            id="connections"
+            class="panel packets-panel"
+        >
+
+
+            <div class="panel-header">
+
+
+                <div>
+
+                    <span class="panel-label">
+                        NETWORK TRAFFIC
+                    </span>
+
+                    <h2>
+                        Paquets observés
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="small-button"
+                    id="refresh-button"
+                >
+                    Actualiser
+                </button>
+
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                TIME
+                            </th>
+
+                            <th>
+                                SOURCE
+                            </th>
+
+                            <th>
+                                DESTINATION
+                            </th>
+
+                            <th>
+                                PROTOCOLE
+                            </th>
+
+                            <th>
+                                PORT
+                            </th>
+
+                            <th>
+                                SIZE
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                EXPORT
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="packet-table">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             ALERTES
+             ================================================= -->
+
+        <section
+            id="alerts"
+            class="lower-grid"
+        >
+
+
+            <article class="panel alerts-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <span class="panel-label">
+                            SECURITY
+                        </span>
+
+                        <h2>
+                            Alertes
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        id="alert-header-count"
+                        class="alert-count"
+                    >
+                        3
+                    </span>
+
+
+                </div>
+
+
+                <div
+                    id="alerts-list"
+                    class="alerts-list"
+                >
+
+                </div>
+
+
+            </article>
+
+
+            <!-- =================================================
+                 ANALYSE
+                 ================================================= -->
+
+            <article
+                id="analysis"
+                class="panel explanation-panel"
+            >
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <span class="panel-label">
+                            INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Analyse
+                        </h2>
+
+                    </div>
+
+                    <div class="export-actions">
+                        <button class="small-button" id="export-current-json" type="button">Télécharger JSON</button>
+                        <button class="small-button" id="export-current-csv" type="button">Télécharger CSV</button>
+                        <button class="small-button" data-report-section="capture" type="button">Capture CSV</button>
+                        <button class="small-button" data-report-section="protocols" type="button">Protocoles CSV</button>
+                        <button class="small-button" data-report-section="communications" type="button">Communications CSV</button>
+                        <button class="small-button" data-report-section="observations" type="button">Alertes CSV</button>
+                    </div>
+
+                </div>
+
+
+                <div class="explanation-block fact-block">
+
+
+                    <span>
+                        FAIT OBSERVÉ
+                    </span>
+
+
+                    <p id="analysis-fact">
+                        -
+                    </p>
+
+
+                </div>
+
+
+                <div class="explanation-block interpretation-block">
+
+
+                    <span>
+                        INTERPRÉTATION
+                    </span>
+
+
+                    <p id="analysis-interpretation">
+                        -
+                    </p>
+
+
+                </div>
+
+
+                <div class="explanation-block hypothesis-block">
+
+
+                    <span>
+                        HYPOTHÈSE
+                    </span>
+
+
+                    <p id="analysis-hypothesis">
+                        -
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =================================================
+             HISTORIQUE
+             ================================================= -->
+
+        <section
+            id="history"
+            class="panel history-panel"
+        >
+
+
+            <div class="panel-header">
+
+
+                <div>
+
+                    <span class="panel-label">
+                        HISTORY
+                    </span>
+
+                    <h2>
+                        Analyses récentes
+                    </h2>
+
+                </div>
+
+
+                <div class="history-actions">
+                    <span class="history-info" id="history-message">Historique persistant</span>
+                    <button class="small-button" id="history-access-button" type="button" hidden>Configurer l’accès</button>
+                    <button class="small-button" id="history-refresh-button" type="button">Actualiser</button>
+                </div>
+
+
+            </div>
+
+
+            <div class="history-list" id="history-list" aria-live="polite">
+                <div class="empty-state">Chargement de l’historique…</div>
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+
+            <span>
+                INPA — Intelligent Network Packet Analyzer
+            </span>
+
+
+            <span>
+                Capture locale · Rapports JSON et CSV
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+    <div class="account-auth-overlay" id="account-auth-overlay" hidden>
+        <form class="account-auth-card" id="account-auth-form">
+            <span class="account-auth-eyebrow">ESPACE SÉCURISÉ INPA</span>
+            <h2 id="account-auth-title">Connexion à INPA</h2>
+            <p id="account-auth-description">Connecte-toi pour accéder à tes captures privées.</p>
+            <label for="account-auth-email">Adresse e-mail</label>
+            <input id="account-auth-email" name="email" type="email" autocomplete="email" required maxlength="254">
+            <label for="account-auth-password">Mot de passe</label>
+            <input id="account-auth-password" name="password" type="password" autocomplete="current-password" required minlength="12">
+            <div class="account-auth-error" id="account-auth-error" role="alert"></div>
+            <div class="account-auth-actions">
+                <button class="small-button" id="account-auth-cancel" type="button">Annuler</button>
+                <button class="small-button account-auth-submit" id="account-auth-submit" type="submit">Se connecter</button>
+            </div>
+            <button class="account-auth-switch" id="account-auth-switch" type="button">Créer un compte</button>
+        </form>
+    </div>
+
+
+    <script src="/static/js/dashboard.js?v=20261012-multiuser2"></script>
+
+
+</body>
+
+</html>
