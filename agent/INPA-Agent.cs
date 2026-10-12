@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 internal static class InpaAgent
 {
     private const string Version = "1.0.0";
+    private const string DefaultServerUrl = "https://intelligent-network-easy-production.up.railway.app";
     private const string PcapLibrary = "wpcap.dll";
     private static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = 16 * 1024 * 1024 };
     private sealed class PendingPacket
@@ -134,12 +135,7 @@ internal static class InpaAgent
     {
         string suppliedServer = ReadArgument(args, "--server");
         string suppliedToken = ReadArgument(args, "--token");
-        ServerUrl = suppliedServer;
-        if (String.IsNullOrWhiteSpace(ServerUrl))
-        {
-            Console.Write("URL de l'application INPA (https://...) : ");
-            ServerUrl = Console.ReadLine();
-        }
+        ServerUrl = String.IsNullOrWhiteSpace(suppliedServer) ? DefaultServerUrl : suppliedServer;
         if (String.IsNullOrWhiteSpace(ServerUrl)) return false;
         ServerUrl = ServerUrl.Trim().TrimEnd('/');
 
@@ -154,29 +150,21 @@ internal static class InpaAgent
         Token = suppliedToken;
         if (String.IsNullOrWhiteSpace(Token))
         {
-            Console.Write("Jeton INPA_AGENT_TOKEN : ");
-            Token = ReadHiddenLine();
+            Console.Write("Code individuel INPA (saisie visible) : ");
+            Token = ReadVisibleLine();
         }
         if (String.IsNullOrWhiteSpace(Token))
         {
-            Console.Error.WriteLine("Le jeton de l'agent est obligatoire.");
+            Console.Error.WriteLine("La clé API INPA est obligatoire.");
             return false;
         }
         return true;
     }
 
-    private static string ReadHiddenLine()
+    private static string ReadVisibleLine()
     {
-        StringBuilder value = new StringBuilder();
-        while (true)
-        {
-            ConsoleKeyInfo key = Console.ReadKey(true);
-            if (key.Key == ConsoleKey.Enter) { Console.WriteLine(); return value.ToString(); }
-            if (key.Key == ConsoleKey.Backspace) { if (value.Length > 0) value.Length--; continue; }
-            if (!Char.IsControl(key.KeyChar)) value.Append(key.KeyChar);
-        }
+        return Console.ReadLine() ?? String.Empty;
     }
-
     private static string ReadArgument(string[] args, string name)
     {
         for (int i = 0; i + 1 < args.Length; i++) if (String.Equals(args[i], name, StringComparison.OrdinalIgnoreCase)) return args[i + 1];

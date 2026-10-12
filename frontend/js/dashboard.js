@@ -38,13 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         agentConfigButton: $("agent-config-button"),
         authOverlay: $("account-auth-overlay"),
         authForm: $("account-auth-form"),
-        authEmail: $("account-auth-email"),
-        authPassword: $("account-auth-password"),
-        authTitle: $("account-auth-title"),
-        authDescription: $("account-auth-description"),
+        authKey: $("account-auth-api-key"),
+
         authError: $("account-auth-error"),
         authSubmit: $("account-auth-submit"),
-        authSwitch: $("account-auth-switch"),
+
         authCancel: $("account-auth-cancel"),
         exportCurrentJson: $("export-current-json"),
         exportCurrentCsv: $("export-current-csv")
@@ -59,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sessionTokenKey = "inpa-session-token";
     let loginPromise = null;
     let resolveLogin = null;
-    let accountAuthMode = "login";
 
     // Affiche une valeur sans provoquer d'erreur si l'élément n'existe pas.
     function setText(element, value) {
@@ -128,57 +125,73 @@ document.addEventListener("DOMContentLoaded", () => {
             .join(":");
     }
 
-    function requestAccessToken() {
-        if (loginPromise) return loginPromise;
-        if (!elements.authOverlay || !elements.authForm) return Promise.resolve(false);
-        accountAuthMode = "login";
-        elements.authForm.reset();
-        setText(elements.authError, "");
-        setAccountAuthMode();
-        elements.authOverlay.hidden = false;
-        loginPromise = new Promise((resolve) => { resolveLogin = resolve; });
-        window.setTimeout(() => elements.authEmail?.focus(), 0);
-        return loginPromise;
+    let sharedAgentConfigPromise = null;
+
+    async function requestAccessToken() {
+        const cached = localStorage.getItem(accessTokenKey);
+        if (cached) return true;
+        if (!sharedAgentConfigPromise) {
+            sharedAgentConfigPromise = (async () => {
+                const response = await fetch("/api/auth/access-key", {
+                    method: "POST",
+                    headers: { Accept: "application/json" },
+                    cache: "no-store"
+                });
+                const result = await response.json();
+                if (!response.ok || !result.access_key) {
+                    throw new Error(result.detail || "Impossible de créer ton espace INPA.");
+                }
+                localStorage.setItem(accessTokenKey, result.access_key);
+                return true;
+            })();
+        }
+        try {
+            return await sharedAgentConfigPromise;
+        } finally {
+            sharedAgentConfigPromise = null;
+        }
     }
 
-    function setAccountAuthMode() {
-        const registering = accountAuthMode === "register";
-        setText(elements.authTitle, registering ? "Créer ton compte INPA" : "Connexion à INPA");
-        setText(elements.authDescription, registering
-            ? "Un compte privé pour ton agent, tes captures et tes rapports."
-            : "Connecte-toi pour accéder à tes captures privées.");
-        setText(elements.authSubmit, registering ? "Créer le compte" : "Se connecter");
-        setText(elements.authSwitch, registering ? "J’ai déjà un compte" : "Créer un compte");
-        if (elements.authPassword) elements.authPassword.autocomplete = registering ? "new-password" : "current-password";
+    function showAgentConfiguration(config) {
+        const serverUrl = String(config?.server_url || "").trim();
+        const agentToken = String(config?.agent_token || "").trim();
+        if (!serverUrl || !agentToken) {
+            throw new Error("Le serveur n’a pas fourni la configuration complète de l’agent.");
+        }
+        window.prompt(
+            "Code individuel INPA. Il ouvre uniquement ton espace et connecte ton agent. Garde ce code pour toi."
+                + "\n\nServeur : " + serverUrl
+                + "\n\nCopie ce code dans INPA-Agent.exe pour connecter ce poste.",
+            agentToken
+        );
     }
-
     async function submitAccountAuth(event) {
         event.preventDefault();
-        if (!elements.authEmail?.value || !elements.authPassword?.value) return;
+        const key = elements.authKey?.value?.trim();
+        if (!key) return;
         elements.authSubmit.disabled = true;
         setText(elements.authError, "");
+        localStorage.setItem(accessTokenKey, key);
         try {
-            const response = await fetch(accountAuthMode === "register" ? "/api/auth/register" : "/api/auth/login", {
+            const response = await fetch("/api/auth/validate-key", {
                 method: "POST",
-                headers: { "Content-Type": "application/json", Accept: "application/json" },
-                body: JSON.stringify({ email: elements.authEmail.value.trim(), password: elements.authPassword.value }),
+                headers: { "X-INPA-Token": key, Accept: "application/json" },
                 cache: "no-store"
             });
             const result = await response.json();
-            if (!response.ok) throw new Error(result.detail || `Connexion refusée (HTTP ${response.status}).`);
-            sessionStorage.setItem(sessionTokenKey, result.session_token);
-            sessionStorage.removeItem(accessTokenKey);
+            if (!response.ok) throw new Error(result.detail || "Clé API invalide.");
+            sessionStorage.removeItem(sessionTokenKey);
             elements.authOverlay.hidden = true;
             loginPromise = null;
             resolveLogin?.(true);
             resolveLogin = null;
         } catch (error) {
-            setText(elements.authError, error.message || "Connexion impossible.");
+            localStorage.removeItem(accessTokenKey);
+            setText(elements.authError, error.message || "Clé API invalide.");
         } finally {
             if (elements.authSubmit) elements.authSubmit.disabled = false;
         }
     }
-
     function cancelAccountAuth() {
         if (!loginPromise) return;
         elements.authOverlay.hidden = true;
@@ -202,8 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ...(sessionStorage.getItem(sessionTokenKey)
                     ? { "X-INPA-Session": sessionStorage.getItem(sessionTokenKey) }
                     : {}),
-                ...(sessionStorage.getItem(accessTokenKey)
-                    ? { "X-INPA-Token": sessionStorage.getItem(accessTokenKey) }
+                ...(localStorage.getItem(accessTokenKey)
+                    ? { "X-INPA-Token": localStorage.getItem(accessTokenKey) }
                     : {})
             },
             cache: "no-store"
@@ -382,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Récupère une réponse JSON depuis l'API.
     async function fetchJSON(url, options = {}) {
         const request = () => {
-            const token = sessionStorage.getItem(accessTokenKey) || "";
+            const token = localStorage.getItem(accessTokenKey) || "";
             const sessionToken = sessionStorage.getItem(sessionTokenKey) || "";
             return fetch(url, {
                 ...options,
@@ -820,6 +833,58 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    async function lookupVirusTotal(ip, row, button) {
+        const consentKey = "inpa-virustotal-consent";
+        if (!sessionStorage.getItem(consentKey)) {
+            const accepted = window.confirm(
+                "L’adresse IP publique " + ip + " sera envoyée à VirusTotal pour consulter sa réputation. Continuer ?"
+            );
+            if (!accepted) return;
+            sessionStorage.setItem(consentKey, "accepted");
+        }
+
+        let resultRow = row.nextElementSibling;
+        if (!resultRow?.classList.contains("virustotal-result-row")) {
+            resultRow = document.createElement("tr");
+            resultRow.className = "virustotal-result-row";
+            const cell = document.createElement("td");
+            cell.colSpan = 8;
+            resultRow.appendChild(cell);
+            row.after(resultRow);
+        }
+
+        const cell = resultRow.firstElementChild;
+        cell.textContent = "Interrogation de VirusTotal…";
+        button.disabled = true;
+        try {
+            const response = await fetchJSON(
+                "/api/enrichment/virustotal/ip?ip=" + encodeURIComponent(ip)
+            );
+            const info = response.result || {};
+            const malicious = Number(info.malicious || 0);
+            const suspicious = Number(info.suspicious || 0);
+            const reputation = info.reputation == null ? "indisponible" : info.reputation;
+            cell.replaceChildren();
+            const summary = document.createElement("span");
+            summary.textContent = ip + " · Détections malveillantes : " + malicious
+                + " · suspectes : " + suspicious + " · réputation : " + reputation;
+            if (info.country || info.as_owner) {
+                summary.textContent += " · " + [info.country, info.as_owner].filter(Boolean).join(" — ");
+            }
+            cell.appendChild(summary);
+            const link = document.createElement("a");
+            link.href = info.url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "Ouvrir le rapport VirusTotal";
+            cell.append(" ");
+            cell.appendChild(link);
+        } catch (error) {
+            cell.textContent = error.message || "Consultation VirusTotal impossible.";
+        } finally {
+            button.disabled = false;
+        }
+    }
     // Affiche les derniers paquets observés.
     function renderPackets(packets) {
         if (!elements.packetTable) return;
@@ -894,6 +959,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 exportObservedPacket(packet, index)
             );
             exportCell.appendChild(exportButton);
+            const looksLikeIp = (value) => /^(?:\d{1,3}\.){3}\d{1,3}$/.test(value)
+                || (/^[0-9a-f:]+$/i.test(value) && value.includes(":"));
+            [
+                ["IP source", String(source)],
+                ["IP destination", String(destination)]
+            ].forEach(([label, ipAddress]) => {
+                if (!looksLikeIp(ipAddress)) return;
+                const lookupButton = document.createElement("button");
+                lookupButton.type = "button";
+                lookupButton.className = "small-button";
+                lookupButton.textContent = label;
+                lookupButton.title = "Consulter la réputation de cette IP publique";
+                lookupButton.addEventListener("click", () =>
+                    lookupVirusTotal(ipAddress, row, lookupButton)
+                );
+                exportCell.appendChild(lookupButton);
+            });
             row.appendChild(exportCell);
 
             elements.packetTable.appendChild(row);
@@ -901,7 +983,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Affiche les observations réseau avec leurs faits et interprétations.
-   
+
     // Classe les observations sans modifier les règles de détection du backend.
     function renderAlerts(analysis) {
         if (!elements.alertsList) return;
@@ -1233,16 +1315,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Le bouton Actualiser recharge les données.
     if (elements.authForm) elements.authForm.addEventListener("submit", submitAccountAuth);
-    if (elements.authSwitch) {
-        elements.authSwitch.addEventListener("click", () => {
-            accountAuthMode = accountAuthMode === "login" ? "register" : "login";
-            setText(elements.authError, "");
-            setAccountAuthMode();
-            if (elements.authPassword) elements.authPassword.value = "";
-            elements.authPassword?.focus();
+    if (elements.authCancel) elements.authCancel.addEventListener("click", cancelAccountAuth);
+    const rotateAccessKeyButton = $("rotate-access-key");
+    if (rotateAccessKeyButton) {
+        rotateAccessKeyButton.addEventListener("click", async () => {
+            if (!window.confirm("Renouveler le code ? L’ancien code cessera immédiatement de fonctionner et l’agent devra recevoir le nouveau.")) return;
+            rotateAccessKeyButton.disabled = true;
+            try {
+                const response = await fetchJSON("/api/auth/access-key/rotate", { method: "POST" });
+                localStorage.setItem(accessTokenKey, response.access_key);
+                showAgentConfiguration(await fetchJSON("/api/auth/agent-config"));
+                await loadDashboard();
+            } catch (error) {
+                setText(elements.fact, error.message || "Impossible de renouveler le code.");
+            } finally {
+                rotateAccessKeyButton.disabled = false;
+            }
         });
     }
-    if (elements.authCancel) elements.authCancel.addEventListener("click", cancelAccountAuth);
+    const accessKeyButton = $("access-key-button");
+    if (accessKeyButton) {
+        accessKeyButton.addEventListener("click", async () => {
+            if (!localStorage.getItem(accessTokenKey)) {
+                if (!await requestAccessToken()) return;
+            }
+            try {
+                showAgentConfiguration(await fetchJSON("/api/auth/agent-config"));
+            } catch (error) {
+                setText(elements.fact, error.message || "Impossible de charger la configuration de l'agent.");
+            }
+        });
+    }
     if (elements.authOverlay) {
         elements.authOverlay.addEventListener("click", (event) => {
             if (event.target === elements.authOverlay) cancelAccountAuth();
@@ -1264,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.agentConfigButton.addEventListener("click", async () => {
             try {
                 const response = await fetchJSON("/api/auth/agent-config");
-                window.alert(`Configuration de ton agent (ne partage pas ce jeton)\n\nServeur : ${response.server_url}\nJeton agent : ${response.agent_token}\n\nLance INPA-Agent.exe et saisis ces deux valeurs.`);
+                showAgentConfiguration(response);
             } catch (error) {
                 setText(elements.fact, error.message || "Impossible de charger la configuration de l'agent.");
             }

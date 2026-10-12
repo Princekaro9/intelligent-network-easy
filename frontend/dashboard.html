@@ -21,7 +21,7 @@
 
     <link
         rel="stylesheet"
-        href="/static/css/dashboard.css"
+        href="/static/css/dashboard.css?v=20261012-public-key2"
     >
 
 </head>
@@ -267,6 +267,7 @@
 
 
             <div class="topbar-actions">
+                <button class="small-button" id="access-key-button" type="button">Mon code INPA</button>
 
 
                 <div class="agent-status">
@@ -318,10 +319,10 @@
         <section class="agent-download-panel" aria-label="Installation de l'agent local">
             <div>
                 <strong>Connecter ce PC à INPA</strong>
-                <p>Télécharge et lance l’agent Windows en tant qu’administrateur. Au premier démarrage, indique l’adresse HTTPS de cette application et le jeton d’agent fourni par son administrateur. Npcap doit être installé pour la capture réseau.</p>
+                <p>Télécharge INPA-Agent.exe et lance-le comme administrateur. Le serveur est préconfiguré. Au premier démarrage, saisis simplement ton code individuel affiché en haut à droite. Npcap doit être installé.</p>
             </div>
             <a class="small-button" href="/download-agent" download="INPA-Agent.exe">Télécharger INPA-Agent.exe</a>
-            <button class="small-button" id="agent-config-button" type="button">Configurer mon agent</button>
+            <button class="small-button" id="rotate-access-key" type="button">Renouveler mon code</button>
         </section>
 
 
@@ -994,26 +995,7 @@
 
     </main>
 
-    <div class="account-auth-overlay" id="account-auth-overlay" hidden>
-        <form class="account-auth-card" id="account-auth-form">
-            <span class="account-auth-eyebrow">ESPACE SÉCURISÉ INPA</span>
-            <h2 id="account-auth-title">Connexion à INPA</h2>
-            <p id="account-auth-description">Connecte-toi pour accéder à tes captures privées.</p>
-            <label for="account-auth-email">Adresse e-mail</label>
-            <input id="account-auth-email" name="email" type="email" autocomplete="email" required maxlength="254">
-            <label for="account-auth-password">Mot de passe</label>
-            <input id="account-auth-password" name="password" type="password" autocomplete="current-password" required minlength="12">
-            <div class="account-auth-error" id="account-auth-error" role="alert"></div>
-            <div class="account-auth-actions">
-                <button class="small-button" id="account-auth-cancel" type="button">Annuler</button>
-                <button class="small-button account-auth-submit" id="account-auth-submit" type="submit">Se connecter</button>
-            </div>
-            <button class="account-auth-switch" id="account-auth-switch" type="button">Créer un compte</button>
-        </form>
-    </div>
-
-
-    <script src="/static/js/dashboard.js?v=20261012-multiuser2"></script>
+    <script src="/static/js/dashboard.js?v=20261012-individual-key2"></script>
 
 
 </body>

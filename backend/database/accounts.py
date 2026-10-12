@@ -52,6 +52,56 @@ class AccountStore:
                 )"""
             )
             connection.execute("CREATE INDEX IF NOT EXISTS inpa_sessions_user_idx ON inpa_sessions(user_id)")
+            connection.execute(
+                """CREATE TABLE IF NOT EXISTS inpa_access_keys (
+                    user_id TEXT PRIMARY KEY,
+                    token_hash TEXT NOT NULL UNIQUE,
+                    created_at REAL NOT NULL,
+                    revoked_at REAL
+                )"""
+            )
+
+    def create_access_key(self) -> dict:
+        user_id = uuid.uuid4().hex
+        token = "INPA-" + secrets.token_urlsafe(32)
+        token_hash = hashlib.sha256(token.encode("ascii")).hexdigest()
+        with self._connection() as connection:
+            connection.execute(
+                "INSERT INTO inpa_access_keys (user_id, token_hash, created_at) VALUES (?, ?, ?)",
+                (user_id, token_hash, time.time()),
+            )
+        return {"user_id": user_id, "access_key": token}
+
+    def rotate_access_key(self, user_id: str) -> str | None:
+        token = "INPA-" + secrets.token_urlsafe(32)
+        token_hash = hashlib.sha256(token.encode("ascii")).hexdigest()
+        with self._connection() as connection:
+            cursor = connection.execute(
+                "UPDATE inpa_access_keys SET token_hash = ?, created_at = ?, revoked_at = NULL WHERE user_id = ?",
+                (token_hash, time.time(), user_id),
+            )
+        return token if cursor.rowcount == 1 else None
+
+    def get_access_key_user(self, token: str) -> str | None:
+        token = str(token or "").strip()
+        if not token or len(token) > 256:
+            return None
+        token_hash = hashlib.sha256(token.encode("ascii", errors="ignore")).hexdigest()
+        with self._connection() as connection:
+            row = connection.execute(
+                "SELECT user_id FROM inpa_access_keys WHERE token_hash = ? AND revoked_at IS NULL",
+                (token_hash,),
+            ).fetchone()
+        return row["user_id"] if row else None
+
+    def revoke_access_key(self, token: str) -> bool:
+        token_hash = hashlib.sha256(str(token or "").encode("ascii", errors="ignore")).hexdigest()
+        with self._connection() as connection:
+            cursor = connection.execute(
+                "UPDATE inpa_access_keys SET revoked_at = ? WHERE token_hash = ? AND revoked_at IS NULL",
+                (time.time(), token_hash),
+            )
+        return cursor.rowcount == 1
 
     @staticmethod
     def _email(value: str) -> str:
@@ -66,8 +116,8 @@ class AccountStore:
 
     def register(self, email: str, password: str) -> dict:
         email = self._email(email)
-        if len(password or "") < 12:
-            raise ValueError("Le mot de passe doit contenir au moins 12 caractères.")
+        if not 6 <= len(password or "") <= 10:
+            raise ValueError("Le mot de passe doit contenir entre 6 et 10 caractères.")
         user_id = uuid.uuid4().hex
         salt = secrets.token_bytes(16)
         with self._connection() as connection:

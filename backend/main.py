@@ -20,6 +20,7 @@ from backend.analyzer.profile import network_profile_builder
 from backend.database.history import AnalysisHistory, default_history_path, utc_now
 from backend.database.accounts import AccountStore
 from backend.reports import build_report, serialize_csv, serialize_json
+from backend.enrichment.virustotal import VirusTotalError, lookup_public_ip
 
 
 # =========================================================
@@ -36,7 +37,6 @@ active_capture_id = None
 active_capture_started_at = None
 active_capture_interface = None
 last_capture_metadata = {}
-ACCESS_TOKEN = os.getenv("INPA_ACCESS_TOKEN", "").strip()
 AGENT_TOKEN = os.getenv("INPA_AGENT_TOKEN", "").strip()
 AGENT_EXECUTABLE = BASE_DIR / "agent" / "INPA-Agent.exe"
 REMOTE_AGENT_LOCK = Lock()
@@ -116,13 +116,15 @@ async def initialize_history():
 
 
 async def require_history_access(request: Request):
-    """Retourne l'identifiant du compte distant ou autorise le mode local historique."""
+    """Retourne l’identifiant propre au code d’accès ou autorise le mode local."""
     session_token = request.headers.get("x-inpa-session", "")
     user = account_store.get_session_user(session_token)
     if user:
         return user["id"]
-
-    # Les requêtes distantes ne doivent jamais tomber sur l'état global local.
+    supplied = request.headers.get("x-inpa-token", "")
+    user_id = account_store.get_access_key_user(supplied)
+    if user_id:
+        return user_id
     client_host = request.client.host if request.client else ""
     try:
         is_local = ipaddress.ip_address(client_host).is_loopback
@@ -130,51 +132,68 @@ async def require_history_access(request: Request):
         is_local = False
     if (request.headers.get("x-forwarded-for") or request.headers.get("forwarded")
             or request.headers.get("x-forwarded-proto") or not is_local):
-        raise HTTPException(status_code=401, detail="Connecte-toi à ton compte INPA.")
-
-    if ACCESS_TOKEN:
-        supplied = request.headers.get("x-inpa-token", "")
-        if not hmac.compare_digest(supplied, ACCESS_TOKEN):
-            raise HTTPException(status_code=401, detail="Jeton INPA requis ou invalide.")
-        return None
-
-    if not is_local:
-        raise HTTPException(status_code=401, detail="Connecte-toi à ton compte INPA.")
+        raise HTTPException(status_code=401, detail="Code d’accès INPA absent ou invalide.")
 
 
 def require_remote_agent_access(request: Request):
-    if not AGENT_TOKEN:
-        raise HTTPException(status_code=503, detail="L'agent distant n'est pas configuré. Définis INPA_AGENT_TOKEN sur le serveur.")
     supplied = request.headers.get("x-inpa-agent-token", "")
-    if not hmac.compare_digest(supplied, AGENT_TOKEN):
-        raise HTTPException(status_code=401, detail="Jeton INPA_AGENT_TOKEN absent ou invalide.")
+    if not supplied:
+        raise HTTPException(status_code=401, detail="Code d’accès INPA de l’agent absent.")
 
 
 def _agent_user_id(request: Request) -> str | None:
     supplied = request.headers.get("x-inpa-agent-token", "")
+    user_id = account_store.get_access_key_user(supplied)
+    if user_id:
+        return user_id
     if not AGENT_TOKEN or "." not in supplied:
         require_remote_agent_access(request)
-        return None
-    user_id, signature = supplied.split(".", 1)
-    expected = hmac.new(AGENT_TOKEN.encode("utf-8"), user_id.encode("ascii", errors="ignore"), "sha256").hexdigest()
-    if not hmac.compare_digest(signature, expected) or not account_store.get_user(user_id):
-        raise HTTPException(status_code=401, detail="Jeton individuel de l'agent absent ou invalide.")
-    return user_id
+        raise HTTPException(status_code=401, detail="Code d’accès INPA de l’agent invalide.")
+    legacy_user_id, signature = supplied.split(".", 1)
+    expected = hmac.new(AGENT_TOKEN.encode("utf-8"), legacy_user_id.encode("ascii", errors="ignore"), "sha256").hexdigest()
+    if not hmac.compare_digest(signature, expected) or not account_store.get_user(legacy_user_id):
+        raise HTTPException(status_code=401, detail="Jeton individuel de l’agent absent ou invalide.")
+    return legacy_user_id
 
+@app.get("/api/enrichment/virustotal/ip")
+async def virustotal_ip_reputation(
+    ip: str,
+    _access: str | None = Depends(require_history_access),
+):
+    """Recherche à la demande la réputation VirusTotal d'une IP publique."""
+    try:
+        return {"success": True, "result": await lookup_public_ip(ip)}
+    except VirusTotalError as error:
+        raise HTTPException(status_code=error.status_code, detail=error.message) from error
 
 @app.post("/api/auth/register")
-async def register_account(payload: dict):
-    try:
-        user = account_store.register(payload.get("email", ""), payload.get("password", ""))
-    except ValueError as error:
-        raise HTTPException(status_code=400, detail=str(error)) from error
-    except Exception as error:
-        if "UNIQUE constraint failed" in str(error):
-            raise HTTPException(status_code=409, detail="Un compte existe déjà pour cette adresse e-mail.") from error
-        raise
-    token = account_store.create_session(user["id"])
-    return {"success": True, "user": user, "session_token": token}
+async def register_account():
+    raise HTTPException(status_code=410, detail="L'inscription par compte est désactivée. Un code individuel est créé automatiquement.")
 
+
+@app.post("/api/auth/access-key")
+async def create_access_key():
+    """Crée un espace privé et renvoie son code une seule fois au navigateur."""
+    return {"success": True, **account_store.create_access_key()}
+
+
+@app.post("/api/auth/access-key/rotate")
+async def rotate_access_key(_access: str | None = Depends(require_history_access)):
+    if not _access:
+        raise HTTPException(status_code=401, detail="Un code individuel est requis.")
+    token = account_store.rotate_access_key(_access)
+    if not token:
+        raise HTTPException(status_code=404, detail="Code individuel introuvable.")
+    return {"success": True, "access_key": token}
+
+
+@app.post("/api/auth/validate-key")
+async def validate_access_key(request: Request):
+    supplied = request.headers.get("x-inpa-token", "")
+    user_id = account_store.get_access_key_user(supplied)
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Code d’accès INPA absent ou invalide.")
+    return {"success": True, "user_id": user_id}
 
 @app.post("/api/auth/login")
 async def login_account(payload: dict):
@@ -197,13 +216,26 @@ async def logout_account(request: Request):
     return {"success": True}
 
 
+def _public_agent_server_url(request: Request) -> str:
+    configured_url = os.getenv("INPA_PUBLIC_URL", "").strip()
+    if configured_url:
+        return configured_url.rstrip("/")
+
+    railway_domain = os.getenv("RAILWAY_PUBLIC_DOMAIN", "").strip().rstrip("/")
+    if railway_domain:
+        railway_domain = railway_domain.replace("https://", "", 1).replace("http://", "", 1)
+        return f"https://{railway_domain}"
+
+    return str(request.base_url).rstrip("/")
+
 @app.get("/api/auth/agent-config")
-async def user_agent_config(request: Request, user_id: str = Depends(require_history_access)):
-    if not user_id:
-        raise HTTPException(status_code=401, detail="Connecte-toi à ton compte INPA.")
-    return {"success": True, "server_url": str(request.base_url).rstrip("/"), "agent_token": _agent_token_for_user(user_id)}
-
-
+async def user_agent_config(request: Request, _access: str | None = Depends(require_history_access)):
+    token = request.headers.get("x-inpa-token", "").strip()
+    if not _access:
+        raise HTTPException(status_code=401, detail="Code d’accès individuel requis pour connecter l’agent.")
+    if not token:
+        token = _agent_token_for_user(_access)
+    return {"success": True, "server_url": _public_agent_server_url(request), "agent_token": token}
 def _remote_agent_connected() -> bool:
     last_seen = REMOTE_AGENT_STATE.get("last_seen")
     if not last_seen:
